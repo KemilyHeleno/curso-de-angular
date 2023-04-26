@@ -1,1 +1,1 @@
-# curso-de-angular-loiane.training
+# curso-de-angular
