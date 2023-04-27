@@ -4,8 +4,8 @@
 Um framework JavaScript desenvolvido pelo Google para criação de aplicações Web SPA baseada em componentes 
 
 ## Command Line Interface - CLI
-npm i -g @angular/cli    --> Para instalar o pacote CLI do angular  
-ng new minha-app         --> Para criar uma aplicação
+`npm i -g @angular/cli`    --> Para instalar o pacote CLI do angular  
+`ng new minha-app`         --> Para criar uma aplicação
 <br/>
 <br/>
 
@@ -18,10 +18,10 @@ Superset do JavaScript (tudo que tem no js, também tem no ts)
 <br/>  
   
 ## Inicialização da APP
-main.ts                  --> O código é em TypeScript para inicializar a aplicação em angular  
-AppModule                --> Organizada em componentes (modularizada)  
-Bootstrap                --> Aponta para o componente AppComponent (que vai trazer a arvore de componentes)  
-AppComponent             --> Vai trazer a arvore de componentes  
+`main.ts`                  --> O código é em TypeScript para inicializar a aplicação em angular  
+`AppModule`                --> Organizada em componentes (modularizada)  
+`Bootstrap`                --> Aponta para o componente AppComponent (que vai trazer a arvore de componentes)  
+`AppComponent`             --> Vai trazer a arvore de componentes  
 <br/>  
 <br/>  
   
@@ -45,7 +45,7 @@ O angular não organiza a aplicação apenas por componentes, organiza também p
 -- YModule       - Componentes E, F, G, H  
 -- ZModule       - Componentes I, J, K, L, M  
 <br/>
-A árvore fica assim  
+A árvore fica assim:  
 A   ->    B  ->   E  
 A   ->    B  ->   F ->  I  
 A   ->    B  ->   F ->  J  
@@ -89,9 +89,9 @@ Com exceção do componente H, como esse componente só é apontado pelo compone
   
   
   
-## Organização Usando Módulo **
- -- AppModule    -> bootstrap        -> declarations
- -- AppModule    -> bootstrap        -> imports
+## Organização Usando Módulo
+ -- AppModule    -> bootstrap        -> declarations  
+ -- AppModule    -> bootstrap        -> imports  
  -- XModule      -> declarations  
  -- XModule      -> imports  
  -- XModule      -> exports  
@@ -104,4 +104,29 @@ Com exceção do componente H, como esse componente só é apontado pelo compone
  -- ZModule      -> imports
  -- ZModule      -> exports
  -- ZModule      -> providers
+<br/>
+Enquanto o AppModule só faz importação dos componenetes, os outros módulos fazem importação e exportação de componentes
 
+## Conhecendo os arquivos gerados
+* tsconfig.json --> arquivo que configura a compilação do código em TypeScript
+* angular.json -- > arquivo de configuração de como serão gerados os arquivos do projeto angular
+* pasta src --> onde é armazenado o código fonte
+* main.ts --> importa e carrega o módulo principal (AppModule)
+* pasta app --> pasta com o modulo criado
+* app-routing.module.ts --> Cria as rotas
+* app.components.ts --> componente - Estilo da página principal
+* app.module.ts --> modulo - dentro dele está o BoosTrap, que aponta o componente que iniciará a aplicação
+* pasta assets --> pasta para colocar as imagens
+* environments.ts --> cria, armazena e da valor as variáveis
+* environments.prod.ts --> cria, armazena e da valor as variáveis em produção
+* index.html --> aponta para o componente raiz
+</br>
+</br>
+
+# Alguns comandos utilizados no terminal
+* `ng add @angular/material` --> para instalar o material que irá padronizar os ícones da aplicação
+* `ng generate component components/template/header` --> para criar um novo componente dentro da pasta header que está dentro da pasta template
+* `npm start` --> inicia a aplicação na porta escolhida
+* `npm server --o` --> inicia a aplicação e já abre o browser para que a aplicação possa ser visualizada
+* `ng new frontend --minimal` --> cria um novo módulo chamado frontend com sem arquivos desnecessários (se você tirar o `--minimal` irá gerar muitos arquivos desnecessários)
+* 
