@@ -129,22 +129,111 @@ Existe um escopo (um mundo) dentro do componente
 > Quando você aplica um estilo com o CSS em um componente do projeto, o estilo vai ficar apenas naquele componente (mesmo que você programe o CSS para a aplicação inteira, se estiver dentro do componente irá alterar apenas ele).
 * Diretivas:
 Existe mais que uma, sendo:
-### Attribute Directives
+ **Attribute Directives**
 Alteram a aparência e o comportamento de um elemtento, componente ou de outra diretiva.  
 > **Note** Aparência:  
 > Quando utilizada em conjunto com o CSS
 
 > **Note** Comportamento:  
 > Pode ser utilizada para ativar uma função do backend casando o back e o front  
-A diretiva é um Decorator, por tanto ela é chamada dessa forma:  
-> `@Directive({` </br>
-> `            `  
-> `})          `  
-### Structural Directives
-Altera o layout adicionando e removendo elementos da DOM.  
 
+A diretiva é um Decorator, por tanto ela é chamada dessa forma:  
+`@Directive({` </br>
+`            `  
+`})          `  
+
+ **Structural Directives**
+Altera a estrutura (layout) adicionando e removendo elementos da DOM (HTML).  
+> **Note** Exemplos de como chamar:
+> * `<form *ngIf="product" class="product-form"> </form>`
+> * `<ul>                                               `
+>   `   <li *ngFor="let product of products">           `
+>   `      {{product.name}}                             `
+>   `   </li>                                           `
+>   `</ul>                                              `
+
+* Property Biding:
+Usado para pegar as informações do componente, um meio de comunicação entre o HTML e o TypeScript - usado colocando `[atributo]` substituindo a palavra atributo pelo nome do seu atributo
 
 * Rotas:
+Carrega o componente da opção selecionada  
+As rotas disponíveis entre telas e entre arquivos do código.
+> **Note** Exemplo:
+> Na barra de navegação ao apertar os botões você é enviado para páginas diferentes. Quem faz essas rotas para a onde você vai dependendo da opção selecionada é o Router
+
+O código a baixo define que se você clicar na palavra "Produtos", você vai ser enviado para a página de produtos  
+**HTML Arquivo de rotas**  
+`<a routerLink="/products">`  
+`  Produtos                `  
+`</a>                      `  
+
+**TypeScript**  
+`const routes: Routes = [{           `
+`  path: "products",                 `
+`  component: ProductCrudComponent   `
+`}, {                                `
+`  path: "products/create",          `
+`  component: ProductCreateComponent `
+`}];                                 `  
+
+**HTML principal**  
+`<mat-sidenav-content>               `  
+`   <router-outlet></router-outlet>  `  
+`</mat-sidenav-content>              `  
+
 * Pipes:
+É o nome dado ao sinal "|"  
+Processamento feito variadamente, faz a intercolação com double mustache (`{{}}`)
+> **Note** Esse nome se refere ao fato de duas chaves seguidas parecerem um bigode e traduzido ao literal Mustache = Bigode  
+
+Também pode ser usado para alterar a formatação
+> **Note** Por exemplo:  
+> Se você tiver um valor numérico mas deseja apresenta-lo como um valor monetário, o pipe pode fazer essa alteração  
+
+**Sem Parâmetros**
+`<p>                                `  
+`   O vencimento é                  `  
+`   {{ produto.vencimento | date }} `  
+`</p>                               `  
+
+**Com Parâmetros**
+`<td mat-cell *matCellDef="let product">   `  
+`    {{ product.price | currency: 'BRL }}  `  
+`</td>                                     `  
+
+**É possível fazer mais de um pipe na mesma chamada**
+`<p>                                                       `  
+`   O vencimento é                                         `  
+`   {{ produto.vencimento | date: 'fullDate' | uppercase }}`  
+`</p>                                                      `  
+* Programação **Reativa**
+Toda vez que é feita uma alteração no projeto ele é executado de forma reativa, que não consome tanta memória do computador e executa as alterações para que o desenvolvedor possa vê-las em tempo real  
+ReactiveX  
+`import { Observable } from "rxjs";`  
 * Observables:
+Tudo começa a partir do padrão Observer...  
+Padrão orientado a Evento, o observer faz a solicitação de que o subject fique "de olho" se houve algum evento, em caso positivo, o observer reage ao evento.  
+> **Note** Por Exemplo:
+> Quando você faz uma compra online e recebe um e-mail de confirmação da compra e após um tempo recebe um e-mail de aviso que o produto saiu para entrega e outro confirmando que você recebeu o produto.  
+> A rota se torna:  
+> Confirmação de compra    = Subject --> Compra             = Evento1 --> Disparo e-mail1 = Observer1  
+> Verificação de postagem  = Subject --> Postagem Produto   = Evento2 --> Disparo e-mail2 = Observer2  
+> Verificação de entrega   = Subject --> Entrega do Produto = Evento3 --> Disparo e-mail3 = Observer3  
+
+Código 1  - front faz uma requisição no tipo post para o back
+`criarNoBackend(produto: Produto): Observable<Produto> {  `  
+`   return this.http.post<Produto>(this.url, produto);    `  
+`}                                                        `  
+</br>
+Código 2  - back responde a requisição do front
+
+`criarProduto(): void {                                   `  
+`   this.criarNoBackend(this.produto).subscribe(() => {   `  
+`       this.exibirMensagem("Salvo com sucesso!");        `  
+`   });                                                   `
+`}                                                        `  
+
+A requisição demora para ser respondida, então o observable solicita para que o subjetive avise quando a requisição for respondida  
+
 * Services:
+São classes que têm como principal objetivo organizar e compartilhar métodos e dados entre componentes.
