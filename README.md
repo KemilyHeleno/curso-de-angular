@@ -132,7 +132,8 @@ Existe mais que uma, sendo:
 ### Attribute Directives
 Alteram a aparência e o comportamento de um elemtento, componente ou de outra diretiva.  
 > **Note** Aparência:  
-> Quando utilizada em conjunto com o CSS  
+> Quando utilizada em conjunto com o CSS
+
 > **Note** Comportamento:  
 > Pode ser utilizada para ativar uma função do backend casando o back e o front  
 A diretiva é um Decorator, por tanto ela é chamada dessa forma:  
