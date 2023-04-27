@@ -36,7 +36,7 @@ O angular não organiza a aplicação apenas por componentes, organiza também p
 -- AppModule     - Componente A  
 -- XModule       - Componentes B, C, D  
 -- YModule       - Componentes E, F, G, H  
--- ZModule       - Componentes I, J, K, L, M
+-- ZModule       - Componentes I, J, K, L, M  
 <br/>
 A árvore fica assim:  
 A   ->    B  ->   E  
@@ -85,14 +85,14 @@ Com exceção do componente H, como esse componente só é apontado pelo compone
  -- XModule      -> declarations  
  -- XModule      -> imports  
  -- XModule      -> exports  
- -- XModule      -> providers
+ -- XModule      -> providers  
  -- YModule      -> declarations  
  -- YModule      -> imports  
  -- YModule      -> exports  
- -- YModule      -> providers
+ -- YModule      -> providers  
  -- ZModule      -> declarations  
- -- ZModule      -> imports
- -- ZModule      -> exports
+ -- ZModule      -> imports  
+ -- ZModule      -> exports  
  -- ZModule      -> providers  
 <br/>
 Enquanto o AppModule só faz importação dos componenetes, os outros módulos fazem importação e exportação de componentes
@@ -110,9 +110,8 @@ Enquanto o AppModule só faz importação dos componenetes, os outros módulos f
 * environments.ts --> cria, armazena e da valor as variáveis
 * environments.prod.ts --> cria, armazena e da valor as variáveis em produção
 * index.html --> aponta para o componente raiz
-</br>
 
-# Alguns comandos utilizados no terminal
+## Alguns comandos utilizados no terminal
 * `ng add @angular/material` --> para instalar o material que irá padronizar os ícones da aplicação
 * `ng generate component components/template/header` --> para criar um novo componente dentro da pasta header que está dentro da pasta template
 * `npm start` --> inicia a aplicação na porta escolhida
