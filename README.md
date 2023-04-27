@@ -1,4 +1,4 @@
-bb# CURSO DE ANGULAR
+# CURSO DE ANGULAR
 
 ## O que é Angular?
 Um framework JavaScript desenvolvido pelo Google para criação de aplicações Web SPA baseada em componentes 
@@ -136,8 +136,8 @@ Alteram a aparência e o comportamento de um elemtento, componente ou de outra d
 > **Note** Comportamento:  
 > Pode ser utilizada para ativar uma função do backend casando o back e o front  
 A diretiva é um Decorator, por tanto ela é chamada dessa forma: `@Directive({` </br></br>
-
-`})`  
+> 
+> `})`  
 ### Structural Directives
 Altera o layout adicionando e removendo elementos da DOM.  
 
