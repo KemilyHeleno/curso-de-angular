@@ -136,8 +136,8 @@ Alteram a aparência e o comportamento de um elemtento, componente ou de outra d
 > **Note** Comportamento:  
 > Pode ser utilizada para ativar uma função do backend casando o back e o front  
 A diretiva é um Decorator, por tanto ela é chamada dessa forma:  
-> `@Directive({` </br></br>
-> ` `
+> `@Directive({` </br>
+> ` `  
 > `})`  
 ### Structural Directives
 Altera o layout adicionando e removendo elementos da DOM.  
