@@ -1,0 +1,12 @@
+form {
+    /* color: antiquewhite; */
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 110px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-right: 20px;
+}
