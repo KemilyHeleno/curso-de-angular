@@ -1,14 +1,9 @@
 {
   "product": [
     {
-      "id": 1,
-      "name": "Caneta BIC Preta",
-      "price": "5.85"
-    },
-    {
       "id": 2,
       "name": "NoteBook",
-      "price": 5000.89
+      "price": "50.89"
     },
     {
       "id": 3,
@@ -31,19 +26,14 @@
       "id": 6
     },
     {
-      "name": "testesinho",
-      "price": "9.99",
+      "name": "tapete",
+      "price": "0.12",
       "id": 7
     },
     {
-      "name": "lapis preto",
-      "price": "1.99",
+      "name": "lapis azul",
+      "price": "4.56",
       "id": 8
-    },
-    {
-      "id": 9,
-      "name": "teste",
-      "price": "4.44"
     }
   ]
 }
