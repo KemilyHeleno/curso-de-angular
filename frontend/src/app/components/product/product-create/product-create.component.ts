@@ -1,24 +1,41 @@
+import { ProductService } from '../product.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'
+import { Product } from '../product.model';
 
 @Component({
-  selector: 'app-product-create',
+  selector: 'app-create.component.ts',
   templateUrl: './product-create.component.html',
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent {
 
-  atributoLegal = "qualquer"
+  product: Product = {
+    name: '',
+    price: 0
+  }
 
-  constructor() {
+  constructor(private productService: ProductService,
+    private router: Router) {
 
   }
 
   ngOnInit(): void {
+    
+  }
+
+  createProduct(): void {
+    this.productService.create(this.product).subscribe(() => {
+      this.productService.showMessage("Produto Criado");
+      this.router.navigate(['/products'])
+
+    })
 
   }
 
-  fazerAlgo(): void {
-    console.log("Fazer Algo");
-  }
+  cancel(): void {
+    this.productService.showMessage("Operação cancelada");
+    this.router.navigate(['/products'])
 
+  }
 }

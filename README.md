@@ -252,3 +252,9 @@ Chamada de um service dentro do Ts:
 `    //...                      `  
 `}                              `  
 
+## Como fazer tabelas
+
+https://angular.io/guide/schematics - link com o passo a passo do material do angular
+
+`ng g @angular/material:table components/prodcut/product-read` - comando para criar pelo terminal dentro do componente product-read
+

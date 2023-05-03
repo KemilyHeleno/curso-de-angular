@@ -1,0 +1,17 @@
+/* li {
+    color: black;
+} */
+
+table {
+    width: 100%;
+    
+}
+.edit{
+    margin-right: 10px;
+    color: #d9cd26;
+}
+
+.delete {
+    margin-left: 5px;
+    color: #e35e6b;
+}
